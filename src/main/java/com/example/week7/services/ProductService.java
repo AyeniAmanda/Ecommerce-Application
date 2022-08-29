@@ -1,5 +1,6 @@
 package com.example.week7.services;
 
+import com.example.week7.dto.ProductDto;
 import com.example.week7.model.Product;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface ProductService {
 
 
     public Boolean deleteProductById(Long id);
+
+    Product productDtoToEntity(ProductDto productDto);
+
 }

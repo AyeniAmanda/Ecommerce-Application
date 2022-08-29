@@ -16,19 +16,25 @@ import java.io.Serializable;
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productId;
+    private Long product_Id;
     private String productDesc;
 
-    @NotBlank(message = "price is required")
     private double price;
 
-    @NotBlank(message = "Quantity is required")
     private int productQuantity;
 
-    @NotBlank(message = "product name is required")
     private  String productName;
 
-    @NotBlank(message = "product category is required")
     private String productCategory;
 
+    private String image;
+
+    public Product(String productDesc, double price, int productQuantity, String productName, String productCategory, String image) {
+        this.productDesc = productDesc;
+        this.price = price;
+        this.productQuantity = productQuantity;
+        this.productName = productName;
+        this.productCategory = productCategory;
+        this.image = image;
+    }
 }

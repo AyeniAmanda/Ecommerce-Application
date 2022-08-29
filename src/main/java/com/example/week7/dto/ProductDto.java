@@ -9,16 +9,13 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor
-@Component
 public class ProductDto {
 
-    @NotBlank(message = "Product name is mandatory")
 
     private String productName;
     private String productDesc;
     private String productCategory;
 
-    @NotBlank(message = "Product Price is mandatory")
     private double productPrice;
     private String productImage;
     private int productQty;

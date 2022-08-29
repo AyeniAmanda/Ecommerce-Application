@@ -3,29 +3,31 @@ package com.example.week7.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.security.Timestamp;
 
-@Component
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @ManyToOne
-    @JoinColumn(name = "productId", nullable = false)
-    private Product product;
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "userId")
-    private User user;
-    private int quantity;
-    public Cart(Product product, int quantity, User user){
-        this.user = user;
-        this.product = product;
-        this.quantity = quantity;
-    }
+    @Column(name = "cart")
+    private Long cartId;
+
+    @Column(name = "customerId")
+    private Long customerId;
+
+    @Column(name = "product")
+    private String product;
+
+    @Column(name = "quantity")
+    private Long quantity;
+
+    @Column(name = "date")
+    private Timestamp date;
 }

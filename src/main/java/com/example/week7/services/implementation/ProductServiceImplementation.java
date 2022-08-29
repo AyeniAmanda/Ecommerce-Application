@@ -1,5 +1,6 @@
 package com.example.week7.services.implementation;
 
+import com.example.week7.dto.ProductDto;
 import com.example.week7.model.Product;
 import com.example.week7.repository.ProductRepository;
 import com.example.week7.services.ProductService;
@@ -39,5 +40,16 @@ public class ProductServiceImplementation implements ProductService {
         }
         productRepository.deleteById(id);
         return true;
+    }
+
+    @Override
+    public Product productDtoToEntity(ProductDto productDto){
+        Product product1 = new Product();
+        product1.setProductName(productDto.getProductName());
+        product1.setPrice(productDto.getProductPrice());
+        product1.setProductQuantity(productDto.getProductQty());
+        product1.setProductDesc(productDto.getProductDesc());
+        product1.setProductCategory(productDto.getProductCategory());
+        return product1;
     }
 }
